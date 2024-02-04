@@ -7,9 +7,6 @@ from .pipeline import DiffusionModel
 
 def index(request):
     context = {}
-    return render(request, "diffusionUI/index.html", context)
-
-def generate_image(request):
     if request.method == "POST":
         positive_prompt = request.POST.get("positive_prompt")
         model = DiffusionModel()
@@ -21,5 +18,4 @@ def generate_image(request):
         context = {
             'img_str': base64.b64encode(buffer_png.getvalue()).decode('utf-8'),
         }
-
     return render(request, "diffusionUI/index.html", context)
