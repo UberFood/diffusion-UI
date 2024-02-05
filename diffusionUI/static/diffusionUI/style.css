@@ -1,8 +1,21 @@
+body {
+  background-image: url("/static/diffusionUI/images/background.png");
+}
+
 .encompassing_container {
   margin: auto;
   width: 100%;
+  text-align: center;
 }
 
 .prompt_input {
+  margin: 5px;
+}
+
+.prompt_button {
+  margin: 5px;
+}
+
+#image_container {
   margin: 5px;
 }

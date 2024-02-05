@@ -16,7 +16,7 @@
         {% csrf_token %}
         <input class="prompt_input" type="text" name="positive_prompt" placeholder="Я хочу увидеть...">
         <input class="prompt_input" type="text" name="negative_prompt" placeholder="При этом без...">
-        <button type="submit" name="generate_image_button"> Создать изображение</button>
+        <button type="submit" class="prompt_button" name="generate_image_button"> Создать изображение</button>
     </form>
 
     {% if img_str %}
