@@ -2,7 +2,8 @@ from diffusers import DiffusionPipeline
 import torch
 
 class DiffusionModel:
-    pipeline = DiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16)
+    model_address = "runwayml/stable-diffusion-v1-5"
+    pipeline = DiffusionPipeline.from_pretrained(model_address, torch_dtype=torch.float16)
     pipeline.to("cuda")
 
     def __init__(self):
