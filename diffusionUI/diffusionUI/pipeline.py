@@ -10,8 +10,9 @@ class DiffusionModel:
             self.pipeline = DiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16)
             self.pipeline.to("cuda")
 
-    def generate_image(self, positive_prompt):
+    def generate_image(self, positive_prompt, negative_prompt):
         print(positive_prompt)
-        image = self.pipeline(prompt=positive_prompt).images[0]
+        print(negative_prompt)
+        image = self.pipeline(prompt=positive_prompt, negative_prompt=negative_prompt).images[0]
         print(image)
         return image

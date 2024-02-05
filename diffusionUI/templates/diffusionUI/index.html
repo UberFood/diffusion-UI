@@ -1,11 +1,32 @@
-<form action="/" method="post">
-      {% csrf_token %}
-      <input type="text" name="positive_prompt">
-      <button type="submit" name="generate_image_button"> Создать изображение</button>
-</form>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
 
-{% if img_str %}
-<div id="image_container">
-  <img src="data:image/png;base64,{{img_str}}"/>
-</div>
-{% endif %}
+  <head>
+      <meta charset="utf-8">
+      <title>DiffusionUI</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'diffusionUI/style.css' %}">
+  </head>
+
+  <body>
+    <div class="encompassing_container">
+
+    <form action="/" method="post">
+        {% csrf_token %}
+        <input class="prompt_input" type="text" name="positive_prompt" placeholder="Я хочу увидеть...">
+        <input class="prompt_input" type="text" name="negative_prompt" placeholder="При этом без...">
+        <button type="submit" name="generate_image_button"> Создать изображение</button>
+    </form>
+
+    {% if img_str %}
+      <div id="image_container">
+        <img src="data:image/png;base64,{{img_str}}"/>
+      </div>
+    {% endif %}
+
+    </div>
+
+  </body>
+
+</html>

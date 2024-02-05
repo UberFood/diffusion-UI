@@ -9,8 +9,9 @@ def index(request):
     context = {}
     if request.method == "POST":
         positive_prompt = request.POST.get("positive_prompt")
+        negative_prompt = request.POST.get("negative_prompt")
         model = DiffusionModel()
-        image = model.generate_image(positive_prompt)
+        image = model.generate_image(positive_prompt, negative_prompt)
 
         buffer_png = BytesIO()
         image.save(buffer_png, format="PNG", kind='PNG')
